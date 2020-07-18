@@ -15,9 +15,23 @@ const messages = [
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   let name = exerciseName.value.toLowerCase();
+  let allExercises = document.querySelectorAll(".name");
+  let exerciseBoolean = exerciseCheck(name, allExercises);
+  if (name && !exerciseBoolean) {
+    createExercise(name);
+  } else if (exerciseBoolean) {
+    displayAlert("red", "Exercise already added!");
+  } else {
+    displayAlert("red", "Please, write an exercise!");
+  }
+  exerciseName.value = "";
+});
+
+//Create exercise
+
+const createExercise = (name) => {
   let newExercise = document.createElement("div");
-  if (name) {
-    newExercise.innerHTML = `<div class="exercise">
+  newExercise.innerHTML = `<div class="exercise">
         <h3 class='name'>${name}</h3>
         <div class="exercise-data">
             <p>Sets</p>
@@ -37,24 +51,14 @@ form.addEventListener("submit", function (e) {
         <button type="button" class="delete-btn"><i class="far fa-trash-alt fa-lg"></i></button>
         </div>
         </div>`;
-    let newDiv = newExercise.querySelector(".name");
-    let allExercises = document.querySelectorAll(".name");
-    let exerciseBoolean = exerciseCheck(newDiv.textContent, allExercises);
-    // hacer en funcion aparte
-    if (!exerciseBoolean) {
-      let message = messages[Math.floor(Math.random() * messages.length)];
-      displayAlert("green", message);
-      const doneBtn = newExercise.querySelectorAll(".done-btn");
-      exercise.appendChild(newExercise);
-    } else {
-      displayAlert("red", "Exercise already added!");
-    }
-  } else {
-    displayAlert("red", "Write an exercise to begin!");
-  }
-
-  exerciseName.value = "";
-});
+  const editBtn = newExercise.querySelector('.edit-btn');
+  const doneBtn = newExercise.querySelector('.done-btn');   
+  const deleteBtn = newExercise.querySelector('.delete-btn');    
+  let message = messages[Math.floor(Math.random() * messages.length)];
+  displayAlert("green", message);
+  const doneBtn = newExercise.querySelectorAll(".done-btn");
+  exercise.appendChild(newExercise);
+};
 
 // if the user wrote something, success message, if not, a warning sign telling to do so
 
