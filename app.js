@@ -31,8 +31,10 @@ form.addEventListener("submit", function (e) {
             <p>Weight</p>
             <input type="number" class="inputs" placeholder="1" step="1" min="1" max="500">
         </div>
-        <div class="done-btn">
-            <button><i class="far fa-check-circle"></i></button>
+        <div class="btn-container">
+        <button type="button" class="edit-btn"><i class="far fa-edit fa-lg"></i></i></button>
+        <button type="button" class="done-btn"><i class="fas fa-check fa-lg"></i></button>
+        <button type="button" class="delete-btn"><i class="far fa-trash-alt fa-lg"></i></button>
         </div>
         </div>`;
     let newDiv = newExercise.querySelector(".name");

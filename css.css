@@ -113,16 +113,20 @@ input::placeholder {
   border-bottom-right-radius: var(--radius);
 }
 
-.done-btn {
+.btn-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 
-.done-btn button {
+.btn-container button {
   background-color: transparent;
   border-radius: var(--radius);
   border: transparent;
+  cursor: pointer;
+  padding: 0.2rem 0.8rem;
 }
+
 
 .exercise-completed {
   background-color: rgb(161, 214, 161);
