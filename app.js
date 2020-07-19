@@ -100,6 +100,8 @@ const exerciseCheck = (name, exerciseDiv) => {
 
 const editExercise = () => {};
 
+
+// 
 const completeExercise = (e) => {
   const parent = e.currentTarget.parentElement.parentElement;
   const inputs = parent.querySelector(".modifying-container");

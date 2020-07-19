@@ -126,14 +126,15 @@ input::placeholder {
 
 .btn-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 1rem;
 }
 
 .btn-container button {
   background-color: transparent;
   border-radius: var(--radius);
-  border: transparent;
+  border: outset;
+  border-width: thin;
   cursor: pointer;
   padding: 0.2rem 0.8rem;
 }
