@@ -100,28 +100,26 @@ const exerciseCheck = (name, exerciseDiv) => {
 
 const editExercise = () => {};
 
-
 const completeExercise = (e) => {
   const parent = e.currentTarget.parentElement.parentElement;
   const inputs = parent.querySelector(".modifying-container");
   const deleteBtn = parent.querySelector(".delete-btn");
   const editBtn = parent.querySelector(".edit-btn");
   const emoji = parent.querySelector(".emoji");
-  if (!doneState) {
+  if (doneState) {
+    parent.classList.remove("exercise-completed");
+    emoji.classList.remove("emoji-on");
+    deleteBtn.style.display = "block";
+    editBtn.style.display = "block";
+    inputs.style.display = "block";
+    doneState = false;
+  } else {
     parent.classList.add("exercise-completed");
     deleteBtn.style.display = "none";
     editBtn.style.display = "none";
     inputs.style.display = "none";
     emoji.classList.add("emoji-on");
     doneState = true;
-  } else {
-    parent.classList.remove("exercise-completed");
-    emoji.classList.remove("emoji-on");
-    emoji.classList.add("emoji");
-    deleteBtn.style.display = "block";
-    editBtn.style.display = "block";
-    inputs.style.display = "block";
-    doneState = false;
   }
 };
 
