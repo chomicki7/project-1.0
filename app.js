@@ -51,15 +51,20 @@ const createExercise = (name) => {
         <button type="button" class="delete-btn"><i class="far fa-trash-alt fa-lg"></i></button>
         </div>
         </div>`;
-  const editBtn = newExercise.querySelector('.edit-btn');
-  const doneBtn = newExercise.querySelector('.done-btn');   
-  const deleteBtn = newExercise.querySelector('.delete-btn');    
+  const editBtn = newExercise.querySelector(".edit-btn");
+  const doneBtn = newExercise.querySelector(".done-btn");
+  const deleteBtn = newExercise.querySelector(".delete-btn");
+  editBtn.addEventListener("click", editExercise);
+  doneBtn.addEventListener("click", completeExercise);
+  deleteBtn.addEventListener("click", deleteExercise);
   let message = messages[Math.floor(Math.random() * messages.length)];
   displayAlert("green", message);
-  const doneBtn = newExercise.querySelectorAll(".done-btn");
   exercise.appendChild(newExercise);
 };
 
+function closeBox() {
+
+}
 // if the user wrote something, success message, if not, a warning sign telling to do so
 
 const displayAlert = (color, text) => {
@@ -87,6 +92,18 @@ const exerciseCheck = (name, exerciseDiv) => {
   } else {
     return false;
   }
+};
+
+const editExercise = () => {};
+
+const completeExercise = (e) => {
+  const parent = e.currentTarget.parentElement.parentElement;
+  parent.classList.add("exercise-completed");
+};
+
+const deleteExercise = (e) => {
+  const parent = e.currentTarget.parentElement.parentElement;
+  parent.style.display = 'none';
 };
 
 /* doneBtn.forEach(function (button) {
