@@ -12,6 +12,8 @@ const messages = [
   "Looking good!",
 ];
 
+let doneState = false;
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   let name = exerciseName.value.toLowerCase();
@@ -33,7 +35,8 @@ const createExercise = (name) => {
   let newExercise = document.createElement("div");
   newExercise.innerHTML = `<div class="exercise">
         <h3 class='name'>${name}</h3>
-        <p class="emoji"></p>
+        <p class="emoji" id="muscle">&#128170</p>
+        <div class="modifying-container">
         <div class="exercise-data">
             <p>Sets</p>
             <input type="number" class="inputs" placeholder="1" min="1" max="10">
@@ -45,7 +48,8 @@ const createExercise = (name) => {
         <div class="exercise-data">
             <p>Weight</p>
             <input type="number" class="inputs" placeholder="1" step="1" min="1" max="500">
-        </div>
+            </div>
+         </div>   
         <div class="btn-container">
         <button type="button" class="edit-btn"><i class="far fa-edit fa-lg"></i></i></button>
         <button type="button" class="done-btn"><i class="fas fa-check fa-lg"></i></button>
@@ -96,20 +100,29 @@ const exerciseCheck = (name, exerciseDiv) => {
 
 const editExercise = () => {};
 
+
 const completeExercise = (e) => {
   const parent = e.currentTarget.parentElement.parentElement;
-  const inputs = parent.querySelectorAll(".exercise-data");
+  const inputs = parent.querySelector(".modifying-container");
   const deleteBtn = parent.querySelector(".delete-btn");
   const editBtn = parent.querySelector(".edit-btn");
   const emoji = parent.querySelector(".emoji");
-  parent.classList.add("exercise-completed");
-  deleteBtn.style.display = "none";
-  editBtn.style.display = "none";
-  parent.style.alignItems = "center";
-  emoji.innerHTML = "&#128170";
-  inputs.forEach((item) => {
-    item.style.display = "none";
-  });
+  if (!doneState) {
+    parent.classList.add("exercise-completed");
+    deleteBtn.style.display = "none";
+    editBtn.style.display = "none";
+    inputs.style.display = "none";
+    emoji.classList.add("emoji-on");
+    doneState = true;
+  } else {
+    parent.classList.remove("exercise-completed");
+    emoji.classList.remove("emoji-on");
+    emoji.classList.add("emoji");
+    deleteBtn.style.display = "block";
+    editBtn.style.display = "block";
+    inputs.style.display = "block";
+    doneState = false;
+  }
 };
 
 const deleteExercise = (e) => {

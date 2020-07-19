@@ -98,6 +98,7 @@ input::placeholder {
 
 .exercise h3 {
   text-transform: capitalize;
+  text-align: center;
 }
 
 .exercise-data {
@@ -105,7 +106,13 @@ input::placeholder {
 }
 
 .emoji {
+  display: none;
+}
+
+.emoji-on {
   font-size: 2rem;
+  display: block;
+  text-align: center;
 }
 
 .inputs {
@@ -119,7 +126,7 @@ input::placeholder {
 
 .btn-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 1rem;
 }
 
