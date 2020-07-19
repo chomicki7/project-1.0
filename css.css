@@ -104,6 +104,10 @@ input::placeholder {
   display: flex;
 }
 
+.emoji {
+  font-size: 2rem;
+}
+
 .inputs {
   padding-left: 0.5rem;
   margin-left: auto;
