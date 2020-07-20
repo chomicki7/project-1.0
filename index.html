@@ -17,7 +17,7 @@
       <i class="fas fa-dumbbell"></i>
       <div class="underline"></div>
     </div>
-    <!--input para agregar ejercicio a lista-->
+    <!--input section to create the exercises -->
     <section class="input-container">
       <p id="alert" class="red-alert"></p>
       <h3>Start creating your painful routine</h3>
@@ -26,26 +26,24 @@
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </section>
-    <!--lista de ejercicios con la opcion de modificar peso y series, y boton para marcarlo done y pasar background color a green?-->
     <section class="exercises-container">
-      <!--Beginning of exercise square-->
-      <!--Creo los items a medida que el usuario ingresa ejercicios-->
+      <!--Beginning of exercise square created through the user input-->
       <div class="exercise">
         <h3 class='name'>${name}</h3>
         <p class="emoji" id="muscle">&#128170</p>
         <div class="modifying-container">
-          <div class="exercise-data">
-              <p>Sets</p>
-              <input type="number" class="inputs" placeholder="1" min="1" max="10">
-          </div>
-          <div class="exercise-data">
-              <p>Reps</p>
-              <input type="number" class="inputs" placeholder="1" min="1" max="10">
-          </div>
-          <div class="exercise-data">
-              <p>Weight</p>
-              <input type="number" class="inputs" placeholder="1" step="1" min="1" max="500">
-              </div>
+        <div class="exercise-data">
+            <p>Sets</p>
+            <input type="number" class="inputs" placeholder="1" min="1" max="10">
+        </div>
+        <div class="exercise-data">
+            <p>Reps</p>
+            <input type="number" class="inputs" placeholder="1" min="1" max="10">
+        </div>
+        <div class="exercise-data">
+            <p>Weight</p>
+            <input type="number" class="inputs" placeholder="1" step="1" min="1" max="500">
+            </div>
          </div>   
         <div class="btn-container">
         <button type="button" class="edit-btn"><i class="far fa-edit fa-lg"></i></i></button>

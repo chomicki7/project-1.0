@@ -2,6 +2,7 @@ const form = document.querySelector(".form-control");
 const exercise = document.querySelector(".exercises-container");
 const exerciseName = document.getElementById("exerciseInput");
 const alert = document.getElementById("alert");
+const submitBtn = document.querySelector(".submit-btn");
 
 // different options for the display alert function
 const messages = [
@@ -13,18 +14,25 @@ const messages = [
 ];
 
 let doneState = false;
+let editFlag = false;
+let modifyingDiv;
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  // lowercase the input to later check if exists
   let name = exerciseName.value.toLowerCase();
   let allExercises = document.querySelectorAll(".name");
-  let exerciseBoolean = exerciseCheck(name, allExercises);
-  if (name && !exerciseBoolean) {
-    createExercise(name);
-  } else if (exerciseBoolean) {
-    displayAlert("red", "Exercise already added!");
-  } else {
+  let exerciseCreated = exerciseCheck(name, allExercises);
+  if (!name) {
     displayAlert("red", "Please, write an exercise!");
+    return;
+  }
+  if (exerciseCreated) {
+    displayAlert("red", "Exercise already exists!");
+  } else if (!editFlag) {
+    createExercise(name);
+  } else {
+    modifyExercise(name, modifyingDiv);
   }
   exerciseName.value = "";
 });
@@ -77,7 +85,7 @@ const displayAlert = (color, text) => {
   setTimeout(() => {
     alert.classList.remove(`${color}-alert`);
     alert.textContent = "";
-  }, 700);
+  }, 800);
 };
 
 //check if the exercise exists already
@@ -98,10 +106,24 @@ const exerciseCheck = (name, exerciseDiv) => {
   }
 };
 
-const editExercise = () => {};
+const modifyExercise = (name, modifyingDiv) => {
+  modifyingDiv.firstElementChild.textContent = name;
+  editFlag = false;
+  modifyingDiv = "";
+  exerciseName.value = "";
+  submitBtn.textContent = "Submit";
+};
 
+const editExercise = (e) => {
+  modifyingDiv = e.currentTarget.parentElement.parentElement;
+  let name =
+    e.currentTarget.parentElement.parentElement.firstElementChild.textContent;
+  exerciseName.value = name;
+  submitBtn.textContent = "Edit";
+  editFlag = true;
+};
 
-// 
+// restyle the exercise if it gets marked as completed, back to normal if clicked again
 const completeExercise = (e) => {
   const parent = e.currentTarget.parentElement.parentElement;
   const inputs = parent.querySelector(".modifying-container");
@@ -128,4 +150,8 @@ const completeExercise = (e) => {
 const deleteExercise = (e) => {
   const parent = e.currentTarget.parentElement.parentElement;
   parent.style.display = "none";
+};
+
+const preventDefault = () => {
+  editFlag = false;
 };
