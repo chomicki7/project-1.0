@@ -13,13 +13,14 @@ const messages = [
   "Looking good!",
 ];
 
+
 let doneState = false;
 let editFlag = false;
 let modifyingDiv;
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  // lowercase the input to later check if exists
+  // lowercase the input to properly check if exists
   let name = exerciseName.value.toLowerCase();
   let allExercises = document.querySelectorAll(".name");
   let exerciseCreated = exerciseCheck(name, allExercises);
@@ -106,6 +107,8 @@ const exerciseCheck = (name, exerciseDiv) => {
   }
 };
 
+//buttons functionality
+
 const modifyExercise = (name, modifyingDiv) => {
   modifyingDiv.firstElementChild.textContent = name;
   editFlag = false;
@@ -152,6 +155,3 @@ const deleteExercise = (e) => {
   parent.style.display = "none";
 };
 
-const preventDefault = () => {
-  editFlag = false;
-};
