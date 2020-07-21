@@ -13,7 +13,6 @@ const messages = [
   "Looking good!",
 ];
 
-
 let doneState = false;
 let editFlag = false;
 let modifyingDiv;
@@ -152,6 +151,5 @@ const completeExercise = (e) => {
 
 const deleteExercise = (e) => {
   const parent = e.currentTarget.parentElement.parentElement;
-  parent.style.display = "none";
+  parent.remove();
 };
-
