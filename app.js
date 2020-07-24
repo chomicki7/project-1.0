@@ -58,9 +58,9 @@ const createExercise = (name) => {
             </div>
          </div>   
         <div class="btn-container">
-        <button type="button" class="edit-btn"><i class="far fa-edit fa-lg"></i></i></button>
-        <button type="button" class="done-btn"><i class="fas fa-check fa-lg"></i></button>
-        <button type="button" class="delete-btn"><i class="far fa-trash-alt fa-lg"></i></button>
+        <button type="button" class="edit-btn">Edit</button>
+        <button type="button" class="done-btn">Done</button>
+        <button type="button" class="delete-btn">Delete</button>
         </div>
         </div>`;
   // new exercise created, adding functionality to the new buttons
@@ -130,6 +130,7 @@ const completeExercise = (e) => {
   const inputs = parent.querySelector(".modifying-container");
   const deleteBtn = parent.querySelector(".delete-btn");
   const editBtn = parent.querySelector(".edit-btn");
+  const doneBtn = parent.querySelector(".done-btn");
   const emoji = parent.querySelector(".emoji");
   if (doneState) {
     parent.classList.remove("exercise-completed");
@@ -138,6 +139,7 @@ const completeExercise = (e) => {
     editBtn.style.display = "block";
     inputs.style.display = "block";
     doneState = false;
+    doneBtn.innerHTML = "Done";
   } else {
     parent.classList.add("exercise-completed");
     deleteBtn.style.display = "none";
@@ -145,6 +147,7 @@ const completeExercise = (e) => {
     inputs.style.display = "none";
     emoji.classList.add("emoji-on");
     doneState = true;
+    doneBtn.innerHTML = "Undone?";
   }
 };
 
