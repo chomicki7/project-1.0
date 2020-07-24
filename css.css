@@ -92,7 +92,7 @@ input::placeholder {
   min-width: 13vw;
   display: flex;
   flex-direction: column;
-  background-color: rgb(162, 194, 236);
+  background-color: rgba(162, 194, 236, 0.651);
   border-radius: var(--radius);
 }
 

@@ -34,7 +34,6 @@ form.addEventListener("submit", function (e) {
   } else {
     modifyExercise(name, modifyingDiv);
   }
-  exerciseName.value = "";
 });
 
 //Create exercise
