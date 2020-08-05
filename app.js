@@ -23,10 +23,12 @@ form.addEventListener("submit", function (e) {
   let name = exerciseName.value.toLowerCase();
   let allExercises = document.querySelectorAll(".name");
   let exerciseCreated = exerciseCheck(name, allExercises);
+  // checks that a name was inputted
   if (!name) {
     displayAlert("red", "Please, write an exercise!");
     return;
   }
+  //checks that the exercise was not created already
   if (exerciseCreated) {
     displayAlert("red", "Exercise already exists!");
   } else if (!editFlag) {
@@ -36,7 +38,7 @@ form.addEventListener("submit", function (e) {
   }
 });
 
-//Create exercise
+//Create exercise div
 
 const createExercise = (name) => {
   let newExercise = document.createElement("div");
@@ -63,7 +65,7 @@ const createExercise = (name) => {
         <button type="button" class="delete-btn">Delete</button>
         </div>
         </div>`;
-  // new exercise created, adding functionality to the new buttons
+  // new exercise created, adds functionality to the new buttons
   const editBtn = newExercise.querySelector(".edit-btn");
   const doneBtn = newExercise.querySelector(".done-btn");
   const deleteBtn = newExercise.querySelector(".delete-btn");
@@ -77,7 +79,6 @@ const createExercise = (name) => {
 };
 
 // if the user wrote something, success message, if not, displaying a warning sign
-
 const displayAlert = (color, text) => {
   alert.classList.add(`${color}-alert`);
   alert.textContent = `${text}`;
@@ -88,7 +89,6 @@ const displayAlert = (color, text) => {
 };
 
 //check if the exercise exists already
-
 const exerciseCheck = (name, exerciseDiv) => {
   let exerciseArr = [];
   exerciseDiv.forEach((item) => {
