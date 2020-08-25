@@ -52,11 +52,11 @@ const createExercise = (name) => {
         </div>
         <div class="exercise-data">
             <p>Reps</p>
-            <input type="number" class="inputs" placeholder="1" min="1" max="10">
+            <input type="number" class="inputs" placeholder="1" min="1" max="20">
         </div>
         <div class="exercise-data">
             <p>Weight</p>
-            <input type="number" class="inputs" placeholder="1" step="1" min="1" max="500">
+            <input type="number" class="inputs" placeholder="0" step="2.5" min="0" max="500">
             </div>
          </div>   
         <div class="btn-container">

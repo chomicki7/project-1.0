@@ -77,6 +77,10 @@ input::placeholder {
   border: transparent;
 }
 
+.submit-btn:hover {
+  cursor: pointer;
+}
+
 .exercises-container {
   width: 80vw;
   margin-left: auto;
@@ -138,7 +142,6 @@ input::placeholder {
   cursor: pointer;
   padding: 0.2rem 0.8rem;
 }
-
 
 .exercise-completed {
   background-color: rgb(161, 214, 161);
