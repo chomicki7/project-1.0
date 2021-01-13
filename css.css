@@ -26,7 +26,7 @@ p {
 
 .title {
   font-family: "Permanent Marker";
-  padding-top: 2rem;
+  padding-top: 6rem;
   text-align: center;
 }
 
@@ -47,7 +47,7 @@ p {
   font-family: "Roboto";
   padding: 1.25rem;
   margin: 1rem auto;
-  width: 40vw;
+  width: 35vw;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
 }
@@ -83,10 +83,9 @@ input::placeholder {
 
 .exercises-container {
   width: 80vw;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -97,12 +96,15 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   background-color: rgba(162, 194, 236, 0.651);
-  border-radius: var(--radius);
+  border-radius: 25px;
+  border: 1px solid rgba(63, 63, 161, 0.74);
 }
 
 .exercise h3 {
   text-transform: capitalize;
   text-align: center;
+  letter-spacing: 0.1em;
+  padding-bottom: 0.5em;
 }
 
 .exercise-data {
@@ -120,10 +122,11 @@ input::placeholder {
 }
 
 .inputs {
-  padding-left: 0.5rem;
   margin-left: auto;
+  margin-bottom: 0.2em;
   width: 3rem;
-  background-color: rgba(126, 167, 214, 0.808);
+  background-color: transparent;
+  border: 1px solid rgb(97, 97, 97);
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
 }

@@ -4,6 +4,12 @@ const exerciseName = document.getElementById("exerciseInput");
 const alert = document.getElementById("alert");
 const submitBtn = document.querySelector(".submit-btn");
 
+/*  agregar funcion timer en cada ejercicio con los descansos
+    mobile friendly
+    delete submit once submitted!!
+    tracking semanal/mensual de los dias que fui al gym?
+*/
+
 // different options for the display alert function
 const messages = [
   "Great job!",
@@ -46,24 +52,24 @@ const createExercise = (name) => {
         <h3 class='name'>${name}</h3>
         <p class="emoji" id="muscle">&#128170</p>
         <div class="modifying-container">
-        <div class="exercise-data">
-            <p>Sets</p>
-            <input type="number" class="inputs" placeholder="1" min="1" max="10">
-        </div>
-        <div class="exercise-data">
-            <p>Reps</p>
-            <input type="number" class="inputs" placeholder="1" min="1" max="20">
-        </div>
-        <div class="exercise-data">
-            <p>Weight</p>
-            <input type="number" class="inputs" placeholder="0" step="2.5" min="0" max="500">
-            </div>
-         </div>   
-        <div class="btn-container">
-        <button type="button" class="edit-btn">Edit</button>
-        <button type="button" class="done-btn">Done</button>
-        <button type="button" class="delete-btn">Delete</button>
-        </div>
+          <div class="exercise-data">
+              <p>Sets</p>
+              <input type="number" class="inputs" placeholder="1" min="1" max="10">
+          </div>
+          <div class="exercise-data">
+              <p>Reps</p>
+              <input type="number" class="inputs" placeholder="1" min="1" max="20">
+          </div>
+          <div class="exercise-data">
+              <p>Weight</p>
+              <input type="number" class="inputs" placeholder="0" step="2.5" min="0" max="500">
+              </div>
+          </div>   
+          <div class="btn-container">
+            <button type="button" class="edit-btn">Edit</button>
+            <button type="button" class="done-btn">Done</button>
+            <button type="button" class="delete-btn">Delete</button>
+          </div>
         </div>`;
   // new exercise created, adds functionality to the new buttons
   const editBtn = newExercise.querySelector(".edit-btn");
@@ -75,6 +81,7 @@ const createExercise = (name) => {
   // display random message from the messages variable
   let message = messages[Math.floor(Math.random() * messages.length)];
   displayAlert("green", message);
+  exerciseName.value = "";
   exercise.appendChild(newExercise);
 };
 
